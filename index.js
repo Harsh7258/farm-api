@@ -1,6 +1,8 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
+// import slugify from 'slugify';
+const slugify = require('slugify');
 
 const replaceTemplate = require('./modules/replaceTemplates');
 
@@ -40,10 +42,20 @@ const tempCard = fs.readFileSync(`${__dirname}/templates/template-card.html`, 'u
 const tempProduct = fs.readFileSync(`${__dirname}/templates/template-product.html`, 'utf-8');
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
+// data --> reading the data.json file elements.
+
 const dataObj = JSON.parse(data);
+// parsing the json item into string.
+
 // outside of the callback function beacuse the code has to render once
 
 // callback functions render everytime we refresh tha page.
+
+const slugs = dataObj.map(el => slugify(el.productName, { lower: true }));
+// 
+console.log(slugs);
+
+// console.log(slugify('freash-avacados', { lower: true }));
 
 const server = http.createServer((req, res) => {
     // console.log(req.url); // logs the url
