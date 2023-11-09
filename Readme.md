@@ -10,4 +10,6 @@ devDependency to run file and by saving it run without stoping the server.
     "start" : 'nodemon index.js',
 } 
 to start the server with this.
-{npm start} --> in the command line to trigger the start script in the json file. 
+{npm start} --> in the command line to trigger the start script in the json file.
+8. slugify --> creates slugs which are the last part of the links instead of ?id=0... 
+9. package-lock.json --> keeps the packages data used in the project.
